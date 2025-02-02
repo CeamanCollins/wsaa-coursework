@@ -12,8 +12,7 @@
     <h2>My First JavaScript</h2>
 
     <button type="button"
-    onclick="document.getElementById('demo').innerHTML 
-    = Date()">
+    onclick="document.getElementById('demo').innerHTML = Date()">
         Click me to display Date and Time.
     </button>
 
@@ -22,5 +21,18 @@
     <script>
         console.log("Hello World!!")
     </script>
+
+    <script>
+        let a = 5;
+        let b = 10;
+        let max = (a > b) ? a : b;
+        
+        // document.getElementById("ternary").innerHTML= + max
+    </script>
+    <button type="button" onclick="document.getElementById('ternary').innerHTML = max" >
+        Which is greater, 5 or 10?
+    </button>
+
+    <p id="ternary"></p>
 </body>
 </html>
