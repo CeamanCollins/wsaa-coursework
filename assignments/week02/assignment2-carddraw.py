@@ -19,11 +19,10 @@ suits = set()
 
 # Printing drawn cards and generate sets for later use
 for card in cards:
-    #https://www.w3schools.com/python/ref_string_capitalize.asp
+    # https://www.w3schools.com/python/ref_string_capitalize.asp
     print(f"{card['value'].capitalize()} \t {card['suit'].capitalize()}")
     hand.append(f"{card['code']}")
     # https://www.w3schools.com/python/python_ref_set.asp
-    # https://www.w3schools.com/python/python_sets.asp
     values.add(f"{card['value']}")
     suits.add(f"{card['suit']}")
 
@@ -42,11 +41,6 @@ for value in values:
         values.remove('ACE')
         values.add('14')
 
-sorted_values=sorted(values)
-
-# https://www.geeksforgeeks.org/python-list-sort-method/
-hand.sort(key=lambda x: x[0])
-
 if len(values) == 4:
     print("You have drawn a pair. Congratulations!")
 
@@ -56,8 +50,8 @@ if len(values) == 3:
 if len(suits) == 1:
     print("You have drawn a flush. Congratulations!")
 
-if len(sorted_values) == 5:
+if len(values) == 5:
     # https://stackoverflow.com/questions/7368789/convert-all-strings-in-a-list-to-integers
-    sorted_integers = sorted({int(x) for x in sorted_values})
+    sorted_integers = sorted({int(x) for x in values})
     if sorted_integers[0] + 4 == sorted_integers[1] + 3 == sorted_integers[2] + 2 == sorted_integers[3] + 1 == sorted_integers[4]:
         print("You have drawn a straight. Congratulations!")
