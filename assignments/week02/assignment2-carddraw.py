@@ -55,3 +55,5 @@ if len(values) == 5:
     sorted_integers = sorted({int(x) for x in values})
     if sorted_integers[0] + 4 == sorted_integers[1] + 3 == sorted_integers[2] + 2 == sorted_integers[3] + 1 == sorted_integers[4]:
         print("You have drawn a straight. Congratulations!")
+    if sorted_integers == [2,3,4,5,14]:
+        print("You have drawn a straight. Congratulations!")
