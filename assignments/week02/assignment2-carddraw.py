@@ -61,6 +61,7 @@ if len(values) == 2:
         print("You have drawn a full house. Congratulations!")
 
 if len(suits) == 1:
+    # https://stackoverflow.com/questions/7368789/convert-all-strings-in-a-list-to-integers
     sorted_integers = sorted({int(x) for x in values})
     if sorted_integers == [10, 11, 12, 13, 14]:
         print("You have drawn a royal flush. Congratulations!")
@@ -68,7 +69,6 @@ if len(suits) == 1:
         print("You have drawn a flush. Congratulations!")
 
 if len(values) == 5:
-    # https://stackoverflow.com/questions/7368789/convert-all-strings-in-a-list-to-integers
     sorted_integers = sorted({int(x) for x in values})
     if sorted_integers[0] + 4 == sorted_integers[1] + 3 == sorted_integers[2] + 2 == sorted_integers[3] + 1 == sorted_integers[4]:
         print("You have drawn a straight. Congratulations!")
