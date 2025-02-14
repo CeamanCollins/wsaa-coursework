@@ -1,13 +1,7 @@
 import requests
 
-# Getting a fresh deck
-deck_url = "https://deckofcardsapi.com/api/deck/new/shuffle/?deck_count=1"
-deck_response = requests.get(deck_url)
-deck_data = deck_response.json()
-deck_id = deck_data["deck_id"]
-
-# Drawing 5 cards
-deal_url = f"https://deckofcardsapi.com/api/deck/{deck_id}/draw/?count=5"
+# Drawing 5 cards from a fresh deck
+deal_url = f"https://deckofcardsapi.com/api/deck/new/draw/?count=5"
 deal_response = requests.get(deal_url)
 deal_data = deal_response.json()
 cards = deal_data['cards']
