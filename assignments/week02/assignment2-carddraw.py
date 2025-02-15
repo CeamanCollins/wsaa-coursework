@@ -6,7 +6,6 @@ deal_response = requests.get(deal_url)
 deal_data = deal_response.json()
 cards = deal_data['cards']
 
-# https://stackoverflow.com/questions/17663299/creating-an-empty-set
 values = set()
 suits = set()
 repeated_values = []
@@ -15,9 +14,7 @@ suit_symbols = {"SPADES":"♠", "DIAMONDS":"♦", "HEARTS":"♥", "CLUBS":"♣"}
 
 # Printing drawn cards and generate sets and for later use
 for card in cards:
-    # https://www.w3schools.com/python/ref_string_capitalize.asp
     print(f"{card['value'].capitalize()} \t {suit_symbols[card['suit']]} {card['suit'].capitalize()}")
-    # https://www.w3schools.com/python/python_ref_set.asp
     if card['value'] in values:
         repeated_values.append(card['value'])
     else:
@@ -27,7 +24,6 @@ for card in cards:
 # Replace words with numbers in values set
 values_to_replace = {"JACK":"11","QUEEN":"12","KING":"13","ACE":"14"}
 for value in values:
-    # https://www.w3schools.com/python/python_ref_dictionary.asp
     if value in values_to_replace.keys():
         values.remove(value)
         values.add(values_to_replace[value])
@@ -44,15 +40,14 @@ elif len(values) == 3:
         print("You have drawn two pairs. Congratulations!")
 
 # Detecting four of a kind or a full house
-elif len(values) == 2:
+if len(values) == 2:
     if repeated_values[0] == repeated_values[1] == repeated_values[2]:
         print("You have drawn four of a kind. Congratulations!")
     else:
         print("You have drawn a full house. Congratulations!")
 
 # Detecting flush or royal flush
-elif len(suits) == 1:
-    # https://stackoverflow.com/questions/7368789/convert-all-strings-in-a-list-to-integers
+if len(suits) == 1:
     sorted_integers = sorted({int(x) for x in values})
     if sorted_integers == [10, 11, 12, 13, 14]:
         print("You have drawn a royal flush. Congratulations!")
@@ -60,9 +55,9 @@ elif len(suits) == 1:
         print("You have drawn a flush. Congratulations!")
 
 # Detecting straight and ace low straight
-elif len(values) == 5:
+if len(values) == 5:
     sorted_integers = sorted({int(x) for x in values})
     if sorted_integers[0] + 4 == sorted_integers[1] + 3 == sorted_integers[2] + 2 == sorted_integers[3] + 1 == sorted_integers[4]:
         print("You have drawn a straight. Congratulations!")
-    if sorted_integers == [2,3,4,5,14]:
+    elif sorted_integers == [2,3,4,5,14]:
         print("You have drawn a straight. Congratulations!")
