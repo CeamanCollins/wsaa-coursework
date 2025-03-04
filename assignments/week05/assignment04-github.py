@@ -13,8 +13,6 @@ import requests
 # getting key from config file and setting auth
 key = keys['github2']
 auth = Auth.Token(f"{key}")
-
-# opening connection to github
 g = Github(auth=auth)
 
 # setting repository and getting file info and url
