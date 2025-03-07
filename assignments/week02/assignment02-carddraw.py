@@ -39,7 +39,7 @@ if len(values) == 4:
     print(f"You have drawn a pair of {repeated_values[0].capitalize()}s. Congratulations!")
 
 # Detecting three of a kind and two pairs
-elif len(values) == 3:
+if len(values) == 3:
     if repeated_values[0] == repeated_values[1]:
         print("You have drawn three of a kind. Congratulations!")
     else:

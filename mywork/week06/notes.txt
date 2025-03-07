@@ -1,0 +1,92 @@
+# Virtual environments
+
+python -m venv venv
+python -m venv venv --system-site-packages
+./venv/Scripts/activate
+pip freeze
+pip freeze > requirements.txt
+pip install -r requirements.txt
+deactivate
+
+--
+# Basic flask app
+
+#!flask/bin/python
+from flask import Flask
+
+app = Flask(__name__)
+
+@app.route('/')
+def index():
+    return "Hello, World!"
+
+if __name__ == '__main__' :
+    app.run(debug = True)
+
+--
+# method 1 for starting flask app
+python b_restserver.py
+
+--
+# method 2 for starting flask app
+export FLASK_DEBUG=1
+export FLASK_APP=b_restserver
+flask run
+
+--
+# Static folder setting for static pages
+
+app = Flask(__name__,static_url_path='',static_folder='.')
+app = Flask(__name__,static_url_path='',static_folder='staticpages')
+
+--
+# creating enpoints
+@app.route('/user', methods=['GET','POST'])
+
+@app.route('/user/<username>')
+@app.route('/user/<int:post_id')
+
+--
+
+@app.route('/')
+def index():
+    return 'index'
+
+# somewhere else
+print(url_for(index))
+#  will print out  /
+
+--
+
+# redirects
+
+import flask import url_for
+
+@app.route('/invalid', methods=['GET'])
+def testingredirect():
+    return redirect(url_for('index'))
+
+--
+
+from flask import request
+
+reg = request.json['reg']
+
+request.path => eg /user
+request.method => eg GET
+request.form => form data
+request.json => json data in the http request
+request.args => arguments from the url
+request.files['fileparam'] => an uploaded file
+
+from flask import jsonify
+jsonify()
+
+--
+from flask import abort
+
+abort(401)
+
+
+
+
