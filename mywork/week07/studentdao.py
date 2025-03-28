@@ -1,5 +1,6 @@
 # import mysql.connector
 import mariadb
+# import mysql
 import config
 
 class StudentDAO:
