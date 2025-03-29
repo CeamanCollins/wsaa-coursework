@@ -37,7 +37,7 @@ function createCustomer(customer, callback){
             "method": "POST",
             "data": JSON.stringify(customer),
             "dataType": "JSON",
-            contentType: "application/json; charset=utf-8"
+            contentType: "application/json; charset=utf-8",
             "success": function(result){
                 callback(result)
             },
@@ -54,7 +54,7 @@ function updateCustomer(customer, callback){
             "method": "PUT",
             "data": JSON.stringify(customer),
             "dataType": "JSON",
-            contentType: "application/json; charset=utf-8"
+            contentType: "application/json; charset=utf-8",
             "success": function(result){
                 callback(result)
             },
