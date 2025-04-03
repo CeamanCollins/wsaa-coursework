@@ -26,11 +26,28 @@
                 );
             }
             function processGetAll(result){
-            console.log("in process")
-            console.log(result)
+                console.log("in process")
+                console.log(result)
             }
-            getAll(processGetAll)
+            getAll(processGetAllResponse)
             //getAll()
+            function processGetAllResponse(result){
+                console.log("in process")
+                //console.log(result)
+                for (book of result){
+                    //console.log(book)
+                    // You could get away without doing this, I just want to point out
+                    // that the attributes in the book that is returned by the server
+                    // may not be the same as the attributes used in the page
+                    displayBook = {}
+                    displayBook.id = book.id
+                    displayBook.author = book.author
+                    displayBook.title = book.title
+                    displayBook.price = book.price
+                    // you can now pass it to addBookToTable
+                    console.log(displayBook)
+                }
+            }
         </script>
     </body>
 </html>

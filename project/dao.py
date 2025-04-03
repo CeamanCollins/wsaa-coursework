@@ -10,7 +10,7 @@ class StudentDAO:
     cursor =""
     def __init__(self):
         self.host=conf.sql['host']
-        self.user=conf.sql['username']
+        self.user=conf.sql['user']
         self.password=conf.sql['password']
         self.database=conf.sql['database']
     def getCursor(self):
